@@ -9,4 +9,5 @@ CS 面试笔记
 ## C++
 
 - [const](../c++/const.md)
+- [static](../c++/static.md)
 
