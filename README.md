@@ -8,9 +8,9 @@ CS 面试笔记
 
 ## C++
 
-- [const](./c%2B%2B/const.md)
-- [static](./c%2B%2B/static.md)
-- [volatile](./c%2B%2B/volatile.md)
+- [const](./cpp/const.md)
+- [static](./cpp/static.md)
+- [volatile](./cpp/volatile.md)
 
 ## 网络编程
 
