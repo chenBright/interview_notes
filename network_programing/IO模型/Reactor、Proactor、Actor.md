@@ -65,7 +65,7 @@ Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和�
 6. 当用户缓冲区的数据被写入socket之后，内核将向应用程序发送一个信号，已通知应用程序数据已经发送完毕。
 7. 应用程序预先定义好的信号处理函数选择一个工作线程来做善后处理，比如决定是否关闭socket。
 
-![Proactor](/Users/chenbright/Desktop/interview_notes/Network_programing/Proactor.png)
+![Proactor](./Proactor.png)
 
 ## 模拟Proactor
 
@@ -82,7 +82,7 @@ Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和�
 5. 主线程调用epoll_wait等待socket可写。
 6. 当socket可写时，epoll_wait通知主线程。主线程往socket上写入服务器处理客户端请求的结果。
 
-![模拟Proactor](/Users/chenbright/Desktop/interview_notes/Network_programing/模拟Proactor.png)
+![模拟Proactor](./模拟Proactor.png)
 
 ## 优缺点
 
