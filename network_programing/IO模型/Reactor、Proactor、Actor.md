@@ -12,24 +12,24 @@ Reactor 是这样一种模式，它要求主线程（I/O处理单元）只负责
 6. 当socket可写时，epoll_wait通知
 7. 睡眠在请求队列上的某一个工作线程被唤醒，它往socket上写入服务器处理客户请求的结果。
 
-![Reactor](/Users/chenbright/Desktop/interview_notes/Network_programing/Reactor.png)
+![Reactor](./Reactor.png)
 
 ## 单线程Reactor模式
 
-![单线程Reactor模式](/Users/chenbright/Desktop/interview_notes/Network_programing/单线程Reactor模式.jpg)
+![单线程Reactor模式](./单线程Reactor模式.jpg)
 
 ## 工作者线程池
 
 与单线程Reactor模式不同的是，添加了一个工作者线程池，并将非I/O操作从Reactor线程中移出转交给工作者线程池来执行。这样能够提高Reactor线程的I/O响应，不至于因为一些耗时的业务逻辑而延迟对后面I/O请求的处理。
 
-![工作者线程池](/Users/chenbright/Desktop/interview_notes/Network_programing/工作者线程池.png)
+![工作者线程池](./工作者线程池.png)
 
 ## 多线程Reactor模式
 
 Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和分发的事件循环逻辑。
  mainReactor可以只有一个，但subReactor一般会有多个。mainReactor线程主要负责接收客户端的连接请求，然后将接收到的SocketChannel传递给subReactor，由subReactor来完成和客户端的通信。
 
-![多线程Reactor模式](/Users/chenbright/Desktop/interview_notes/Network_programing/多线程Reactor模式.png)
+![多线程Reactor模式](./多线程Reactor模式.png)
 
 ## 优缺点
 
@@ -65,7 +65,7 @@ Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和�
 6. 当用户缓冲区的数据被写入socket之后，内核将向应用程序发送一个信号，已通知应用程序数据已经发送完毕。
 7. 应用程序预先定义好的信号处理函数选择一个工作线程来做善后处理，比如决定是否关闭socket。
 
-![Proactor](/Users/chenbright/Desktop/interview_notes/Network_programing/Proactor.png)
+![Proactor](./Proactor.png)
 
 ## 模拟Proactor
 
@@ -82,7 +82,7 @@ Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和�
 5. 主线程调用epoll_wait等待socket可写。
 6. 当socket可写时，epoll_wait通知主线程。主线程往socket上写入服务器处理客户端请求的结果。
 
-![模拟Proactor](/Users/chenbright/Desktop/interview_notes/Network_programing/模拟Proactor.png)
+![模拟Proactor](./模拟Proactor.png)
 
 ## 优缺点
 
