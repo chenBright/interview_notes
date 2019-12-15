@@ -26,5 +26,7 @@ CS 面试笔记
 
 # Linux
 
-- [top](../linux/top.README)
+- [top](./linux/top.README)
+
+- [scp](./linux/scp.README)
 
