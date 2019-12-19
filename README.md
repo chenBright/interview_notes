@@ -16,6 +16,7 @@ CS 面试笔记
 - [const](./cpp/const.md)
 - [static](./cpp/static.md)
 - [volatile](./cpp/volatile.md)
+- [内存相关](./cpp/memory/memory.md)
 
 ## 网络编程
 
