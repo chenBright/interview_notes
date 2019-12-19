@@ -75,9 +75,7 @@
 
 `man`中的介绍：
 
-> ```
 > The alloca() function allocates size bytes of space in the stack frame of the caller.  This temporary space is automatically freed when the function that called alloca() returns to its caller.
-> ```
 
 `alloca`是从栈中分配空间。正因其从栈中分配的内存，因此无需手动释放内存。
 
