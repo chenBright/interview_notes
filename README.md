@@ -17,6 +17,7 @@ CS 面试笔记
 - [static](./cpp/static.md)
 - [volatile](./cpp/volatile.md)
 - [内存相关](./cpp/memory/memory.md)
+- [NULL、nullptr的区别](./cpp/memory/nullptr.md)
 
 ## 网络编程
 
