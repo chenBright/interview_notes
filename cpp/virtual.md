@@ -89,6 +89,10 @@ Your are calling Base::g (private).
 
 详细可参考《Effective C++》item 9，简洁介绍见[Effective C++ 9：在析构/构造时不要调用虚函数](https://harttle.land/2015/07/27/effective-cpp-9.html)。
 
+## 虚函数与访问限定符
+
+多态的实现与访问限定符没有任何关系，访问限定符只是控制类的成员对外部的可见性，但不限制多态。**通过基类指针或引用调用成员函数时，如果该函数时非虚的，那么将采用静态绑定，即编译时绑定；如果该函数是虚拟的，则采用动态绑定，即运行时绑定。**
+
 ## 参考
 
 - [通过虚函数表访问私有函数](https://liam.page/2018/01/23/crack-private-member-function-by-vtable/)
@@ -97,3 +101,4 @@ Your are calling Base::g (private).
 - [C++中虚函数、虚继承内存模型](https://zhuanlan.zhihu.com/p/41309205)
 - [[转载]虚函数与构造函数、析构函数](https://www.jianshu.com/p/c26f1dc83b28)
 - [Effective C++ 9：在析构/构造时不要调用虚函数](https://harttle.land/2015/07/27/effective-cpp-9.html)
+- [纯虚函数能为private吗？](http://www.cppblog.com/zhuweisky/archive/2005/09/14/269.html)
