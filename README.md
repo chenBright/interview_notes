@@ -18,6 +18,7 @@ CS 面试笔记
 - [volatile](./cpp/volatile.md)
 - [内存相关](./cpp/memory/memory.md)
 - [NULL、nullptr的区别](./cpp/memory/nullptr.md)
+- [虚函数](./cpp/memory/virtual.md)
 
 ## 网络编程
 
