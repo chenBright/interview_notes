@@ -19,6 +19,7 @@ CS 面试笔记
 - [内存相关](./cpp/memory/memory.md)
 - [NULL、nullptr的区别](./cpp/memory/nullptr.md)
 - [虚函数](./cpp/memory/virtual.md)
+- [《深入探索C++对象模型》笔记](./cpp/memory/object_model.md)
 
 ## 网络编程
 
