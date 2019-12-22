@@ -17,8 +17,9 @@ CS 面试笔记
 - [static](./cpp/static.md)
 - [volatile](./cpp/volatile.md)
 - [内存相关](./cpp/memory/memory.md)
-- [NULL、nullptr的区别](./cpp/memory/nullptr.md)
-- [虚函数](./cpp/memory/virtual.md)
+- [NULL、nullptr的区别](./cpp/nullptr.md)
+- [虚函数](./cpp/virtual.md)
+- [bind、function、placeholder](./cpp/memory/bind_function_placeholder.md)
 - [《深入探索C++对象模型》笔记](./cpp/memory/object_model.md)
 
 ## 网络编程
