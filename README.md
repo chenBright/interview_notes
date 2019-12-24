@@ -20,6 +20,7 @@ CS 面试笔记
 - [NULL、nullptr的区别](./cpp/nullptr.md)
 - [虚函数](./cpp/virtual.md)
 - [bind、function、placeholder](./cpp/memory/bind_function_placeholder.md)
+- [为什么vector扩容为2倍](./cpp/vector/vector_memory.md))
 - [《深入探索C++对象模型》笔记](./cpp/memory/object_model.md)
 
 ## 网络编程
