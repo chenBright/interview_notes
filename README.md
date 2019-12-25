@@ -21,7 +21,7 @@ CS 面试笔记
 - [虚函数](./cpp/virtual.md)
 - [bind、function、placeholder](./cpp/memory/bind_function_placeholder.md)
 - [为什么vector扩容为2倍](./cpp/vector/vector_memory.md))
-- [《深入探索C++对象模型》笔记](./cpp/memory/object_model.md)
+- [C++对象模型](./cpp/memory/object_model.md)
 
 ## 网络编程
 
