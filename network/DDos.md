@@ -8,7 +8,8 @@
 
 1. SYN Flood
 2. DNS Query Flood
-3. CC ( Challenge Collapsar)攻击
+3. ICMP flood
+4. CC ( Challenge Collapsar)攻击
 
 ## 防御DDos的方法
 
@@ -25,3 +26,4 @@
 
 - [常见的DDos攻击手段及解决手段](https://juejin.im/post/5d68aaa76fb9a06ad4515a50)
 - [DDos攻击解决办法](https://www.cnblogs.com/diantong/p/11438756.html)
+- [浅谈DDos攻击与防御](https://thief.one/2017/05/10/1/)
