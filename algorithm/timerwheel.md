@@ -8,3 +8,4 @@
 - [Netty源码分析——时间轮](https://www.dazhuanlan.com/2019/10/02/5d949a2686639/)
 - [基于侵入式链表的时间轮定时器实现](https://www.lanindex.com/%E5%9F%BA%E4%BA%8E%E4%BE%B5%E5%85%A5%E5%BC%8F%E9%93%BE%E8%A1%A8%E7%9A%84%E6%97%B6%E9%97%B4%E8%BD%AE%E5%AE%9A%E6%97%B6%E5%99%A8%E5%AE%9E%E7%8E%B0/)
 - [惊艳的时间轮定时器](https://www.cnblogs.com/zhongwencool/p/timing_wheel.html)
+- [libuv C++ 封装中的时间轮实现](https://github.com/wlgq2/uv-cpp/blob/728126a8ca/uv/TimerWheel.h)
