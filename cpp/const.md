@@ -1,4 +1,6 @@
-# const 的作用
+# const 
+
+## 作用
 
 - 定义常量
 
@@ -15,20 +17,40 @@
 
   `const`定义常量从汇编的角度来看，只是给出了对应的***内存地址***，而不是像`#define`一样给出的是***立即数***，所以，`const`定义的常量在程序运行过程中只有一份拷贝，而`#define`定义的常量在内存中有若干个拷贝。
 
-# const对象默认为文件局部变量
+## const对象默认为文件局部变量
 
 非const变量默认为extern。
 
 要使const变量能够在其他文件中访问，必须在文件中显式地指定它为extern。
 
-# const与指针
+## const与指针
 
 原则：从头到左结合，const“修饰”位于它右边的类型或变量。
 
 参考[Github]([https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/const#5%E6%8C%87%E9%92%88%E4%B8%8Econst](https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/const#5指针与const))。
 
-# 函数中使用const
+## const成员变量
+
+参考[C++ Static关键字的用法说明](http://guozet.me/post/C++-Static-keyword/)。
+
+### 常量
+
+- 只能通过`初始化列表`初始化
+- 不能在类内进行初始化
+- 不能在构造函数中初始化
+- 不能在类外初始化
+
+### 静态整型常量
+
+- （整型）能否在类中初始化，取决于编译器
+- 能在在类外初始化，不能带`static`
+
+### 静态非整型常量
+
+- (double型）能否在类中初始化，取决于编译器
+- 能在在类外初始化，不能带`static`
 
 # 参考
 
 - [Github](https://github.com/Light-City/CPlusPlusThings/blob/master/basic_content/const/README.md)
+- [C++ Static关键字的用法说明](http://guozet.me/post/C++-Static-keyword/)
