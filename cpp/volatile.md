@@ -23,5 +23,3 @@
 # 参考
 
 - [谈谈 C/C++ 中的 volatile](https://liam.page/2018/01/18/volatile-in-C-and-Cpp/)
-
-- 

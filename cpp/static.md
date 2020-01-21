@@ -22,8 +22,16 @@
 - 变量内容持久：静态局部变量在程序的生命周期内只分配一次，在第一次调用该语句时被初始化，以后执行该语句时不再初始化。并且从 C++ 11 开始, 这是***线程安全***的。
 - 默认初始化为 0：`static`变量的声明默认值是 0（NULL）。
 
+# static 成员变量
+
+参考[C++ Static关键字的用法说明](http://guozet.me/post/C++-Static-keyword/)。
+
+`static`成员变量需要在**类定义体外**进行初始化与定义，因为static数据成员独立该类的任意对象存在，**它是与类关联的对象，不与类对象关联**。
+
+
 # 参考
 
 - [C/C++面试知识点](https://blog.nowcoder.net/n/597b7119c7ff40308fc6f9b59fdb041d)
 - [C++ 基础知识总结](https://shengchangjian.github.io/2016/09/C++-basic.html#static)
 - [static那些事](https://github.com/Light-City/CPlusPlusThings/tree/master/basic_content/static)
+- [C++ Static关键字的用法说明](http://guozet.me/post/C++-Static-keyword/)
