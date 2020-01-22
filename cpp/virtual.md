@@ -103,6 +103,16 @@ Your are calling Base::g (private).
 
 使用`nm`来查看调用内联函数的**目标文件**，如果找到了`inline`函数的**符号**，那么说明没有被当做内联函数，如果没有找到的话，则说明编译器把它当做了内联函数来处理。因为如果标记为`inline`的函数如果被当做了内联函数，编译器应当直接使用代码替换掉调用标记，所以不应当看到有内联函数的符号。
 
+## memset初始化类
+
+```c++
+memset(Object, 0, sizeof(*this));
+```
+
+如果`Object`是`POD`（plain old data）类型，则可以使用`memset`初始化。否则，`memset`不能初始化对象。常见，对于有虚函数的类，使用`memset`初始化后，基本上虚表指针不再指向虚表，会导致调用虚函数时出现**Segmentation fault**错误。参考[为什么有些类型无法使用memset初始化？](https://blog.csdn.net/dreamvyps/article/details/83963482)
+
+使用`std::is_pod<T>`可以判断类型`T`是否为`POD`类型。
+
 ## 参考
 
 - [通过虚函数表访问私有函数](https://liam.page/2018/01/23/crack-private-member-function-by-vtable/)
@@ -112,3 +122,8 @@ Your are calling Base::g (private).
 - [[转载]虚函数与构造函数、析构函数](https://www.jianshu.com/p/c26f1dc83b28)
 - [Effective C++ 9：在析构/构造时不要调用虚函数](https://harttle.land/2015/07/27/effective-cpp-9.html)
 - [纯虚函数能为private吗？](http://www.cppblog.com/zhuweisky/archive/2005/09/14/269.html)
+- [整理一下 C++ POD 类型的细节](https://zhuanlan.zhihu.com/p/29734547)
+
+- [日常踩坑：C++程序中如何正确使用memset()内存初始化函数？](http://irootlee.com/cpp_memset/)
+- [为什么有些类型无法使用memset初始化？](https://blog.csdn.net/dreamvyps/article/details/83963482)
+- [What is C++11 POD?](http://blog.lpc-win32.com/2017/04/07/cpp11-pod/)
