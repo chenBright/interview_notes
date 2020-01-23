@@ -39,6 +39,7 @@ CS 面试笔记
 ## 网络编程
 
 - [Reactor、Proactor、Actor](./network_progaming/Reactor、Proactor、Actor.md)
+- [字节序](./cpp/endianness.md)
 
 ## 系统编程
 
