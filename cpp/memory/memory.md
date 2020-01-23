@@ -107,4 +107,4 @@
 - [C与C++内存管理详解](https://www.zdaiot.com/C/%E8%AF%AD%E6%B3%95/C%E4%B8%8EC++%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%A6%E8%A7%A3/)
 - [C++ 常见崩溃问题分析](https://www.cnblogs.com/zhoug2020/p/6025388.html)
 - [C++虚函数表](https://www.dazhuanlan.com/2019/12/07/5deb312988a07/)
-- 
+- [虚函数表在对象内存中的布局](https://www.jianshu.com/p/56dc9231641c)
