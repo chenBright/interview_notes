@@ -34,7 +34,6 @@ CS 面试笔记
 - [bind、function、placeholder](./cpp/memory/bind_function_placeholder.md)
 - [为什么vector扩容为2倍](./cpp/vector/vector_memory.md))
 - [C++对象模型](./cpp/memory/object_model.md)
-- [内存对齐](./cpp/memory_alignment.md)
 
 ## 网络编程
 

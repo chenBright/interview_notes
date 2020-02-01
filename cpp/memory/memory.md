@@ -100,6 +100,13 @@
 
 其它如**内存分配失败**、**创建对象失败**等都是容易理解和相对少见的错误，因为目前的系统大部分情况下内存够用；此外**除 0 错误**也是容易理解和防范。
 
+## 内存对齐
+
+- [为什么要内存对齐](https://zhuanlan.zhihu.com/p/33252691)
+- [C/C++ 各数据类型占用字节数](https://zhuanlan.zhihu.com/p/93583960)
+- [C/C++ 结构体字节对齐](https://www.sczyh30.com/posts/Summary/struct_sizeof/)
+- [C/C++内存对齐](https://songlee24.github.io/2014/09/20/memory-alignment/)
+
 ## 参考
 
 - [C++ Essentials](https://cpp.tech-academy.co.uk/memory-layout/)
