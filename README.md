@@ -28,6 +28,7 @@ CS 面试笔记
 - [const](./cpp/const.md)
 - [static](./cpp/static.md)
 - [volatile](./cpp/volatile.md)
+- [类型转换](./cpp/cast.md)
 - [内存相关](./cpp/memory/memory.md)
 - [NULL、nullptr的区别](./cpp/nullptr.md)
 - [虚函数](./cpp/virtual.md)
