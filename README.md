@@ -50,6 +50,7 @@ CS 面试笔记
 - [top](./linux/top.README)
 - [scp](./linux/scp.README)
 - [ps](./linux/ps.README)
+- [ulimit](./linux/ulimit.md)
 
 # 面经
 
