@@ -96,7 +96,7 @@ IBM 的 C++ 指南告诉我们`reinterpret_cast`可以用在什么地方作为�
 
 - `const_cast`一般用于修改指针。如`const char *p`形式;
 
-- `const_cast`也可以去除对象的`valatile`属性。
+- `const_cast`也可以去除对象的`volatile`属性。
 
 #### dynamic_cast
 
