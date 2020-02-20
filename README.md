@@ -35,6 +35,7 @@ CS 面试笔记
 - [bind、function、placeholder](./cpp/memory/bind_function_placeholder.md)
 - [为什么vector扩容为2倍](./cpp/vector/vector_memory.md))
 - [C++对象模型](./cpp/memory/object_model.md)
+- [引用的实质](./cpp/reference.md)
 
 ## 网络编程
 
@@ -52,6 +53,10 @@ CS 面试笔记
 - [scp](./linux/scp.README)
 - [ps](./linux/ps.README)
 - [ulimit](./linux/ulimit.md)
+
+## Git
+
+- [一些常用Git操作](./git/operations.md)
 
 # 面经
 
