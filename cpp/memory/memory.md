@@ -157,10 +157,51 @@
 > 造成野指针的原因：
 >
 > 1. 指针变量没有被初始化（如果值不定，可以初始化为`NULL`）。
->
-> 2. 指针被`free`或者`delete`后，没有置为`NULL`，`free` 和`delete`只是把指针所指向的内存给释放掉，并没有把指针本身干掉，此时指针指向的是“垃圾”内存。释放后的指针应该被置为`NULL`。
->
+>2. 指针被`free`或者`delete`后，没有置为`NULL`，`free` 和`delete`只是把指针所指向的内存给释放掉，并没有把指针本身干掉，此时指针指向的是“垃圾”内存。释放后的指针应该被置为`NULL`。
 > 3. 指针操作超越了变量的作用范围，比如返回指向栈内存的指针就是野指针。
+
+## new和malloc的区别
+
+## new 和 malloc 的区别
+
+参考[实习面经 --C/C++ 基础](http://leungyukshing.cn/archives/Interview-C-basic.html)。
+
+**最本质区别** ：new 是运算符（operator），而 malloc 是函数（function）。
+
+- 分配内存的区域
+  - new：从自由存储区（free store）中分配内存，自由存储区可以是堆（heap），也可以是静态存储区（static area）
+  - malloc：只能从堆（heap）中分配内存
+- 返回类型的安全性
+  - new：返回对象类型的指针，类型严格与对象匹配，类型安全
+  - malloc：返回 `void*`，要强制类型转换
+- 内存分配失败
+  - new：抛出 `bac_alloc` 异常，不会返回 NULL
+  - malloc：返回 NULL，需要用户做判断
+- 指定内存大小
+  - new：用户不需要制定内存块的大小，编译器会根据类型信息自行计算
+  - malloc：用户需要显式地指出所需内存的尺寸
+- 构造和析构
+  - new 操作符：
+    1. 调用 `operator new ()` 函数，分配内存空间
+    2. 调用对象构造函数，传入初值
+    3. 返回指向该对象的指针
+  - delete 操作符：
+    1. 调用对象的析构函数
+    2. 调用 `operator delete ()` 函数，释放内存空间
+  - malloc 函数：只分配内存空间，返回 `void*`
+  - free 函数：只释放内存空间
+- 支持数组
+  - new、delete 支持数组格式，会对数组中每一个对象进行构造或析构
+  - malloc、free 不支持构造或析构
+- new，malloc 调用
+  - new 的实现可基于 malloc
+- 重载
+  - new、delete：可重载
+  - malloc、free：不可重载
+- 重新分配内存
+  - malloc 分配后，可以用 realloc 进行内存重新分配。先判断当前指针所指向的空间是否有足够的连续空间：
+    - 如果有，在原地址的基础上扩大内存地址，返回原指针
+    - 如果没有，分配新的空间，将原数据 copy 到新的空间中，然后释放掉原来的空间，返回新地址的指针。
 
 ## 内存对齐
 
@@ -172,14 +213,10 @@
 ## 参考
 
 - [C++ Essentials](https://cpp.tech-academy.co.uk/memory-layout/)
-
 - [C和C++内存模型](https://www.cnblogs.com/Stultz-Lee/p/6751522.html)
-
 - [C与C++内存管理详解](https://www.zdaiot.com/C/%E8%AF%AD%E6%B3%95/C%E4%B8%8EC++%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%A6%E8%A7%A3/)
-
 - [C++ 常见崩溃问题分析](https://www.cnblogs.com/zhoug2020/p/6025388.html)
-
 - [C++虚函数表](https://www.dazhuanlan.com/2019/12/07/5deb312988a07/)
-
 - [虚函数表在对象内存中的布局](https://www.jianshu.com/p/56dc9231641c)
 - [C++内存泄漏的几种情况](https://www.cnblogs.com/SeekHit/p/6549940.html)
+- [实习面经 --C/C++ 基础](http://leungyukshing.cn/archives/Interview-C-basic.html)
