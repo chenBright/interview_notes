@@ -203,6 +203,10 @@
     - 如果有，在原地址的基础上扩大内存地址，返回原指针
     - 如果没有，分配新的空间，将原数据 copy 到新的空间中，然后释放掉原来的空间，返回新地址的指针。
 
+## 堆管理
+
+[brk和sbrk的定义](https://www.cnblogs.com/chengxuyuancc/p/3566710.html)提到`brk`和`sbrk`的用法、堆管理等。
+
 ## 内存对齐
 
 - [为什么要内存对齐](https://zhuanlan.zhihu.com/p/33252691)
