@@ -21,6 +21,7 @@ CS 面试笔记
 - [粘包](./network/粘包.md)
 - [IP地址分类](./network/IP地址分类/IP地址分类.md)
 - [DDos攻击](./network/DDos.md)
+- [TIME_WAIT](./network/TIME_WAIT.md)
 
 ## C++
 
