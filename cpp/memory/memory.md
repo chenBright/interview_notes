@@ -25,19 +25,19 @@
 
 ![memory_layout](./memory_layout.png)
 
-
-
 - .text 部分是编译后程序的主体，也就是程序的机器指令。
 - .data 和 .bss 保存了程序的全局变量，.data保存有初始化的全局变量，.bss保存只有声明没有初始化的全局变量。
-- heap（堆）中保存程序中动态分配的内存，比如C的malloc申请的内存，或者C++中new申请的内存。堆向高地址方向增长。
+- heap（堆）中保存程序中动态分配的内存，比如 C 的`malloc`申请的内存，或者C++中`new`申请的内存。堆向高地址方向增长。
 - stack（栈）用来进行函数调用，保存函数参数，临时变量，返回地址等。
 - [共享内存的位置](../../system_programing/shared_memory/shared_memory.md)在堆和栈之间。
 
 更详细的内存段解释见[C与C++内存管理详解](https://www.zdaiot.com/C/%E8%AF%AD%E6%B3%95/C%E4%B8%8EC++%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%A6%E8%A7%A3/)。
 
+下面的文章介绍了[Linux虚拟地址空间布局](https://www.cnblogs.com/clover-toeic/p/3754433.html)。
+
 ### C++对象的成员函数存放在内存哪里
 
-类成员函数和非成员函数代码存放在**代码段**。如果类有虚函数，则该类就会存在虚函数表。虚函数表在Linux/Unix中存放在可执行文件的**只读数据段中(rodata)**，即前面起到的**代码段**，而微软的编译器将虚函数表存放在**常量段**。
+类成员函数和非成员函数代码存放在**代码段**。如果类有虚函数，则该类就会存在虚函数表。虚函数表在Linux/Unix 中存放在可执行文件的**只读数据段中(rodata)**，即前面起到的**代码段**，而微软的编译器将虚函数表存放在**常量段**。
 
 ## 堆和栈的区别
 
@@ -57,6 +57,11 @@
 
 虽然栈有如此众多的好处，但是由于和堆相比不是那么灵活，有时候分配大量的内存空间，还是用堆好一些。
 
+## 堆和栈的访问效率
+
+- [堆和栈访问效率哪个更高](https://blog.csdn.net/boyxiaolong/article/details/8543676)
+- [栈为什么效率比堆高](https://www.jianshu.com/p/27c0fc1aecab)
+
 ## “野指针”
 
 “野指针”不是`NULL`指针，是指向“垃圾”内存的指针。“野指针”的成因主要有三种：
@@ -69,7 +74,7 @@
 
 `malloc`与`free`是C++/C语言的标准库函数，`new/delete`是C++的运算符。它们都可用于申请动态内存和释放内存。
 
-对于非内部数据类型的对象而言，光用`maloc/free`无法满足动态对象的要求。**对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。***由于`malloc/free`是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于`malloc/free`。因此 C++ 语言需要一个能完成动态内存分配和初始化工作的运算符`new`，以及一个能完成清理与释放内存工作的运算符`delete`。
+对于非内部数据类型的对象而言，光用`maloc/free`无法满足动态对象的要求。**对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。**由于`malloc/free`是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于`malloc/free`。因此 C++ 语言需要一个能完成动态内存分配和初始化工作的运算符`new`，以及一个能完成清理与释放内存工作的运算符`delete`。
 
 既然`new/delete`的功能完全覆盖了`malloc/free`，为什么C++不把`malloc/free`淘汰出局呢？这是因为C++程序经常要调用C函数，而**C程序只能用`malloc/free`管理动态内存**。
 
@@ -122,7 +127,7 @@
 
 **5. 缺少拷贝构造函数**
 
-> 两次释放相同的内存是一种错误的做法，同时可能会造成堆的奔溃。
+> 两次释放相同的内存是一种错误的做法，同时可能会造成堆的崩溃。
 >
 > 按值传递会调用（拷贝）构造函数，引用传递不会调用。
 >
@@ -150,7 +155,6 @@
 
 > 当基类指针指向子类对象时，如果基类的析构函数不是`virtual`，那么子类的析构函数将不会被调用，子类的资源没有正确是释放，因此造成内存泄露。
 >
->  
 
 **9. 野指针：指向被释放的或者访问受限内存的指针**
 
@@ -160,59 +164,29 @@
 >2. 指针被`free`或者`delete`后，没有置为`NULL`，`free` 和`delete`只是把指针所指向的内存给释放掉，并没有把指针本身干掉，此时指针指向的是“垃圾”内存。释放后的指针应该被置为`NULL`。
 > 3. 指针操作超越了变量的作用范围，比如返回指向栈内存的指针就是野指针。
 
-## new和malloc的区别
-
-## new 和 malloc 的区别
-
-参考[实习面经 --C/C++ 基础](http://leungyukshing.cn/archives/Interview-C-basic.html)。
-
-**最本质区别** ：new 是运算符（operator），而 malloc 是函数（function）。
-
-- 分配内存的区域
-  - new：从自由存储区（free store）中分配内存，自由存储区可以是堆（heap），也可以是静态存储区（static area）
-  - malloc：只能从堆（heap）中分配内存
-- 返回类型的安全性
-  - new：返回对象类型的指针，类型严格与对象匹配，类型安全
-  - malloc：返回 `void*`，要强制类型转换
-- 内存分配失败
-  - new：抛出 `bac_alloc` 异常，不会返回 NULL
-  - malloc：返回 NULL，需要用户做判断
-- 指定内存大小
-  - new：用户不需要制定内存块的大小，编译器会根据类型信息自行计算
-  - malloc：用户需要显式地指出所需内存的尺寸
-- 构造和析构
-  - new 操作符：
-    1. 调用 `operator new ()` 函数，分配内存空间
-    2. 调用对象构造函数，传入初值
-    3. 返回指向该对象的指针
-  - delete 操作符：
-    1. 调用对象的析构函数
-    2. 调用 `operator delete ()` 函数，释放内存空间
-  - malloc 函数：只分配内存空间，返回 `void*`
-  - free 函数：只释放内存空间
-- 支持数组
-  - new、delete 支持数组格式，会对数组中每一个对象进行构造或析构
-  - malloc、free 不支持构造或析构
-- new，malloc 调用
-  - new 的实现可基于 malloc
-- 重载
-  - new、delete：可重载
-  - malloc、free：不可重载
-- 重新分配内存
-  - malloc 分配后，可以用 realloc 进行内存重新分配。先判断当前指针所指向的空间是否有足够的连续空间：
-    - 如果有，在原地址的基础上扩大内存地址，返回原指针
-    - 如果没有，分配新的空间，将原数据 copy 到新的空间中，然后释放掉原来的空间，返回新地址的指针。
-
-## 堆管理
-
-[brk和sbrk的定义](https://www.cnblogs.com/chengxuyuancc/p/3566710.html)提到`brk`和`sbrk`的用法、堆管理等。
-
 ## 内存对齐
 
-- [为什么要内存对齐](https://zhuanlan.zhihu.com/p/33252691)
+CPU是按字读取内存。所以内存对齐的话，不会出现某个类型的数据读一半的情况，需要再二次读取内存。可以提升访问效率。
+
+**内存对齐的作用**:
+
+- 可移植性：因为不同平台对数据的在内存中的访问规则不同,不是所有的硬件都可以访问任意地址上的数据，某些硬件平台只能在特定的地址开始访问数据。所以需要内存对齐。
+- 性能原因：一般使用内存对齐可以提高CPU访问内存的效率。如32位的intel处理器通过总线访问内存数据，每个总线周期从偶地址开始访问32位的内存数据，内存数据以字节为单位存放。如果32为的数据没有存放在４字节整除的内存地址处，那么处理器需要**两个总线周期**对数据进行访问，显然效率下降很多；另外合理的利用字节对齐可以有效的节省存储空间。
+- [C/C++语言内存对齐](https://langzi989.github.io/2017/10/02/C%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E5%AF%B9%E5%85%B6%E7%9B%B8%E5%85%B3/)
+- [内存对齐的规则以及作用](http://www.cppblog.com/snailcong/archive/2009/03/16/76705.html)
+- [C语言内存对齐](http://blog.songzhigang.com/c/memory-alignment.html)
+- [内存对齐](https://www.dazhuanlan.com/2019/12/05/5de8b606e42eb/?__cf_chl_jschl_tk__=20937614131ba6f5d0bcad9d5048506d2e764b8c-1584293329-0-AZebEH8VUi4Pa6DROnJndp-sSMxXoD7iKOHezVDO6XwL_81nnhwNYqYWEqq4fzVeQbZqz004FBJTvH5Sb5gt5R7sOrknEAoEO2T3_hPgKzf1N0k1rRXSf3KET1QtzWcLfeqBtYStsLQh5R4fMT7OIdeoRyBWxnJuipY8KztvHzkA8urV382TPSjQWuWVVsQz85zTiPIvyuJMR8t_KuEqvIjGBnzt3o9KofbpJnQhaSwzY4QwWY7dpXNwZWCLDA3-xFM6-AGKD0j4gZrFHUNuldNBf9pCriL4x8Uuqs5Sv0EdyBzWG0uoXwpEBFzduQqCyQ)
 - [C/C++ 各数据类型占用字节数](https://zhuanlan.zhihu.com/p/93583960)
 - [C/C++ 结构体字节对齐](https://www.sczyh30.com/posts/Summary/struct_sizeof/)
 - [C/C++内存对齐](https://songlee24.github.io/2014/09/20/memory-alignment/)
+
+## 柔性数组
+
+柔性数组结构成员：C99 中，结构中的最后一个元素允许是未知大小的数组，这就叫做柔性数组成员，但结构中的柔性数组成员前面必须至少一个其他成员。柔性数组成员允许结构中包含一个大小可变的数组。`sizeof`返回的这种结构大小不包括柔性数组的内存。包含柔性数组成员的结构用`malloc`函数进行内存的动态分配，并且分配的内存应该大于结构的大小，以适应柔性数组的预期大小。
+
+- [C语言0长度数组(可变数组/柔性数组)详解](https://blog.csdn.net/gatieme/article/details/64131322)
+- [C99柔性数组成员介绍（其一）](http://www.nowamagic.net/academy/detail/1204478)
+- [C99柔性数组成员介绍（其二）](http://www.nowamagic.net/academy/detail/1204480)
 
 ## 参考
 
