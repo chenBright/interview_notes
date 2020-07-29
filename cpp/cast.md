@@ -102,7 +102,7 @@ IBM 的 C++ 指南告诉我们`reinterpret_cast`可以用在什么地方作为�
 
 `dynamic_cast` 主要用来在继承体系中的**安全向下转型**。它能安全地将指向基类的指针转型为指向子类的指针或引用，并获知转型动作成功是否。
 
-**dynamic_cast 只能用在指针和引用类型的转换中**，它是唯一进行**运行期**（runtime）检查的类型转换符，它的主要目的就是保证转换后的类型是一个完整类型（Complete type）。`dynamic_cast`在转换指针类型时，如果结果不是一个 Complete Type，它会返回`NULL`；`dynamic_cast`在转换引用类型时，如果结果不是一个 Complete Type，它会抛出`bad_cast`的异常。`dynamic_cast` 会动使用行时信息（RTTI）来进行类型安全检查，确定源指针所指的内容是否真的合适被目标指针接受。如果是不适合，那么`dynamic_cast`则会返回`null`。因此 `dynamic_cast` 存在一定的效率损失。
+**dynamic_cast 只能用在指针和引用类型的转换中**，它是唯一进行**运行期**（runtime）检查的类型转换符，它的主要目的就是保证转换后的类型是一个完整类型（Complete type）。`dynamic_cast`在转换**指针类型**时，如果结果不是一个 Complete Type，它会返回`NULL`；`dynamic_cast`在转换**引用类型**时，如果结果不是一个 Complete Type，它会抛出`bad_cast`的异常。`dynamic_cast` 会动使用行时信息（RTTI）来进行类型安全检查，确定源指针所指的内容是否真的合适被目标指针接受。如果是不适合，那么`dynamic_cast`则会返回`null`。因此 `dynamic_cast` 存在一定的效率损失。
 
 ```c++
 class CBase { };

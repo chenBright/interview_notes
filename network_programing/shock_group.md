@@ -37,17 +37,10 @@ else
 
 但是[聊聊网络事件中的惊群效应](https://manjusaka.itscoder.com/posts/2019/03/28/somthing-about-thundering-herd/)中的 demo 中显示`EPOLLEXCLUSIVE` 标志位也不能彻底解决惊群问题。因为在于 `EPOLLEXCLUSIVE` **只保证唤醒的进程数小于等于我们开启的进程数**，而不是直接唤醒所有进程，也不是只保证唤醒一个进程
 
-官方的[描述](http://man7.org/linux/man-pages/man2/epoll_ctl.2.html)：
+an 描述](http://man7.org/linux/man-pages/man2/epoll_ctl.2.html)：
 
-> Sets an exclusive wakeup mode for the epoll file descriptor
-> that is being attached to the target file descriptor, fd.
-> When a wakeup event occurs and multiple epoll file descriptors
-> are attached to the same target file using EPOLLEXCLUSIVE, one
-> or more of the epoll file descriptors will receive an event
-> with epoll_wait(2). The default in this scenario (when
-> EPOLLEXCLUSIVE is not set) is for all epoll file descriptors
-> to receive an event. EPOLLEXCLUSIVE is thus useful for avoid‐
-> ing thundering herd problems in certain scenarios.
+> Sets an exclusive wakeup mode for the epoll file descriptor that is being attached to the target file descriptor, fd. When a wakeup event occurs and multiple epoll file descriptors are attached to the same target file using EPOLLEXCLUSIVE, one or more of the epoll file descriptors will receive an event
+> with epoll_wait(2). The default in this scenario (when EPOLLEXCLUSIVE is not set) is for all epoll file descriptors to receive an event. EPOLLEXCLUSIVE is thus useful for avoiding thundering herd problems in certain scenarios.
 
 简单来讲就是，就目前而言，系统并不能严格保证惊群问题的解决。很多时候我们还是要依靠应用层自身的设计来解决。
 
@@ -67,7 +60,8 @@ else
 ### 对于`epoll`函数调用的惊群问题解决办法
 
 1. 参考`Nginx`的解决办法：多个进程将`listenfd`加入到`epoll`之前，首先尝试获取一个全局的`accept_mutex`互斥锁，只有获得该锁的进程才可以把`listenfd`加入到`epoll`中。当网络连接事件到来时，只有`epoll`中含有`listenfd`的线程才会被唤醒并处理网络连接事件，从而解决了`epoll`调用中的惊群问题。[accept与epoll惊群](https://pureage.info/2015/12/22/thundering-herd.html)中有详细的处理过程。
-2. kernel 3.9 增加了 `SO_REUSEPORT` socket option，该选项允许服务端 socket 复用端口，通过`hash`机制将连接分配客户端到具体的进程，而这一切都是由内核处理，在内核层面实现负载均衡注：可以使用`SO_REUSEADDR`快速重启处于`timewait`状态的服务器。
+2. `EPOLLEXCLUSIVE`是 4.5 内核新添加的一个 epoll 的标识，Ngnix 在 1.11.3 之后添加了`NGX_EXCLUSIVE_EVENT`。`EPOLLEXCLUSIVE`标识会保证一个事件发生时候只有一个线程会被唤醒，以避免多侦听下的“惊群”问题。不过任一时候只能有一个工作线程调用 accept，限制了真正并行的吞吐量。
+3. kernel 3.9 增加了 `SO_REUSEPORT` socket option，该选项允许服务端 socket 复用端口，通过`hash`机制将连接分配客户端到具体的进程，而这一切都是由内核处理，在内核层面实现负载均衡注：可以使用`SO_REUSEADDR`快速重启处于`timewait`状态的服务器。
 
 ### 对于线程池中的惊群问题
 
@@ -81,4 +75,6 @@ else
 - [accept与epoll惊群](https://pureage.info/2015/12/22/thundering-herd.html)
 - [惊群探究](https://vcpu.me/%E6%83%8A%E7%BE%A4/)
 - [Linux 最新SO_REUSEPORT特性](https://www.cnblogs.com/Anker/p/7076537.html)
+- [Ngnix 是如何解决 epoll 惊群的](https://simpleyyt.com/2017/06/25/how-ngnix-solve-thundering-herd/)
+- [epoll在多线程中的应用-EPOLLEXCLUSIVE和REUSEPORT](https://blog.csdn.net/dream0130__/article/details/104009426)
 

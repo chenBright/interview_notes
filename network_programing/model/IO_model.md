@@ -40,9 +40,17 @@ Reactor线程池中的每一Reactor线程都会有自己的Selector、线程和�
 ### 缺点
 
 1. 相比传统的简单模型，Reactor增加了一定的复杂性，因而有一定的门槛，并且不易于调试。
+2. Reactor模式需要底层的 Synchronous Event Demultiplexer 支持，比如 Java 中的 Selector 支持，操作系统的 select 系统调用支持，如果要自己实现 Synchronous Event Demultiplexer 可能不会有那么高效。
+3. Reactor 模式在 IO 读写数据时还是在同一个线程中实现的，即使使用多个 Reactor 机制的情况下，那些共享一个 Reactor 的 Channel 如果出现一个**长时间的数据读写**，会影响这个 Reactor 中其他 Channel 的相应时间，比如在大文件传输时，IO操作就会影响其他Client的相应时间。因而对这种操作，使用传统的**Thread-Per-Connection**或许是一个更好的选择，或则此时使用**Proactor**模式。
 
-2. Reactor模式需要底层的Synchronous Event Demultiplexer支持，比如Java中的Selector支持，操作系统的select系统调用支持，如果要自己实现Synchronous Event Demultiplexer可能不会有那么高效。
-3. Reactor模式在IO读写数据时还是在同一个线程中实现的，即使使用多个Reactor机制的情况下，那些共享一个Reactor的Channel如果出现一个***长时间的数据读写***，会影响这个Reactor中其他Channel的相应时间，比如在大文件传输时，IO操作就会影响其他Client的相应时间。因而对这种操作，使用传统的***Thread-Per-Connection***或许是一个更好的选择，或则此时使用***Proactor***模式。
+多线程版本中在系统资源方面的缺点：
+
+1. 线程需要占用一定的内存资源。
+2. 创建和销毁线程也需一定的代价。
+3. 操作系统在切换线程也需要一定的开销。
+4. 线程处理 I/O，在等待输入或输出的这段时间处于空闲的状态，同样也会造成cpu资源的浪费。
+
+**如果连接数太高，系统将无法承受**。
 
 ## 实例
 
@@ -152,6 +160,12 @@ Proactor：异步接收和同时处理多个服务请求的事件驱动程序；
 - [IO设计模式：Actor、Reactor、Proactor](https://www.cnblogs.com/losophy/p/9202815.html)
 - [并发之痛 Thread，Goroutine，Actor]([http://itindex.net/detail/56342-%E5%B9%B6%E5%8F%91-thread-goroutine](http://itindex.net/detail/56342-并发-thread-goroutine))
 - [【GoLang 那点事】深入浅出那些你知道但不理解的并发模型](https://learnku.com/articles/32807#d95484)
+- [C++并发编程框架Theron（1）——Actor模型介绍](https://blog.csdn.net/FX677588/article/details/74359823)
+- [C++并发编程框架Theron（2）——Theron的五要素](https://blog.csdn.net/FX677588/article/details/74936625)
+- [C++并发编程框架Theron（3）——Theron入门](https://blog.csdn.net/FX677588/article/details/75041462)
+- [C++并发编程框架Theron（4）——Hello world!](https://blog.csdn.net/FX677588/article/details/75194617)
+- [C++并发编程框架Theron（5）——File reader（1）](https://blog.csdn.net/FX677588/article/details/75201088)
+- [C++并发编程框架Theron（6）——File reader（2）](https://blog.csdn.net/FX677588/article/details/75268270)
 
 # 参考
 

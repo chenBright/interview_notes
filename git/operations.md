@@ -59,4 +59,5 @@ git checkout -- <filename>
 ## 参考
 
 - [Pro Git v2](https://bingohuang.gitbooks.io/progit2/content/)
+- [如何在 Git 里撤销（几乎）任何操作](https://linux.cn/article-5713-1.html)
 
