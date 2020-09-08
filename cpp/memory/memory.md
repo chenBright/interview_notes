@@ -35,6 +35,9 @@
 
 下面的文章介绍了[Linux虚拟地址空间布局](https://www.cnblogs.com/clover-toeic/p/3754433.html)。
 
+- [x86 程序内存堆栈模型](https://zhuanlan.zhihu.com/p/180318973)
+- [Linux 中的各种栈：进程栈 线程栈 内核栈 中断栈](https://blog.csdn.net/yangkuanqaz85988/article/details/52403726)
+
 ### C++对象的成员函数存放在内存哪里
 
 类成员函数和非成员函数代码存放在**代码段**。如果类有虚函数，则该类就会存在虚函数表。虚函数表在Linux/Unix 中存放在可执行文件的**只读数据段中(rodata)**，即前面起到的**代码段**，而微软的编译器将虚函数表存放在**常量段**。

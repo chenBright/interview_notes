@@ -10,4 +10,4 @@
 ## 共享内存
 
 - [共享内存（上）](https://www.ibm.com/developerworks/cn/linux/l-ipc/part5/index1.html)
-- [共享内存（下](https://www.ibm.com/developerworks/cn/linux/l-ipc/part5/index2.html?ca=drs-)
+- [共享内存（下）](https://www.ibm.com/developerworks/cn/linux/l-ipc/part5/index2.html?ca=drs-)

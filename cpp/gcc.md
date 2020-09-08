@@ -12,3 +12,8 @@
 ## 优化
 
 - [在有循环嵌套时, 要把大循环写在内, 小循环写在外](https://blog.csdn.net/xiaohuh421/article/details/44056189?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1)
+
+## 动态链接
+
+- [动态链接](https://www.jianshu.com/p/5deed1bf82b4)
+- [Linux动态链接为什么要用PLT和GOT表？](https://www.zhihu.com/question/21249496/answer/126600437)

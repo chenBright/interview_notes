@@ -20,3 +20,5 @@
 - lamda表达式、std::bind/std::function 库
 - 其他的就是一些关键字的用法(override、final、delete)
 - using 代替 typedef
+
+- [C++11 中值得关注的几大变化（详解）](https://coolshell.cn/articles/5265.html)
