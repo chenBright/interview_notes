@@ -13,12 +13,12 @@
 [UDP如何实现可靠传输](https://www.jianshu.com/p/1a7206bbca52)的设计：
 
 1. 超时重传（定时器）
-2. 有序接受 （添加包序号）
-3. 应答确认 （Seq/Ack应答机制）
-4. 滑动窗口、流量控制等机制 （滑动窗口协议）
 
-- [科普：QUIC协议原理分析](http://www.52im.net/thread-1160-1-1.html)
-- [一泡尿的时间，快速读懂QUIC协议- 掘金juejin.im › post](https://juejin.im/post/6844903985262903304)
+2. 有序接受 （添加包序号）
+
+3. 应答确认 （Seq/Ack应答机制）
+
+4. 滑动窗口、流量控制等机制 （滑动窗口协议）
 
 ## UDP包大小
 
@@ -28,11 +28,3 @@
 - [TCP UDP包大小分析](https://juejin.im/post/5b4aecd7f265da0fa21a74cf)
 - [TCP层的分段和IP层的分片之间的关系 & MTU和MSS之间的关系](https://blog.csdn.net/yusiguyuan/article/details/22782943)
 - [为什么 TCP/IP 协议会拆分数据](https://draveness.me/whys-the-design-tcp-segment-ip-packet/)
-
-## 帧同步
-
-- [从王者荣耀聊聊游戏的帧同步](https://gameinstitute.qq.com/community/detail/116978)
-
-## DNS
-
-- [为什么 DNS 使用 UDP 协议](https://draveness.me/whys-the-design-dns-udp-tcp/)

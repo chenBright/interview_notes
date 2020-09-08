@@ -25,7 +25,6 @@
 
 ## 线程
 
-- [写给大忙人看的进程和线程](https://juejin.im/post/6844904080393912327)
 - [Linux 线程实现机制分析](https://www.ibm.com/developerworks/cn/linux/kernel/l-thread/index.html)
 - [关于“内核线程”、“用户线程”概念的理解](https://blog.csdn.net/u012927281/article/details/51602898?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 - [普通线程和内核线程](https://www.cnblogs.com/alantu2018/p/8526916.html)
@@ -40,14 +39,11 @@
 ## 同步
 
 - [pthread的各种同步机制](https://casatwy.com/pthreadde-ge-chong-tong-bu-ji-zhi.html)
-- [Linux中的各种锁及其基本原理](https://mp.weixin.qq.com/s/Ahb4QOnxvb2RpCJ3o7RNwg)
 - [关于同步的一点思考-上](https://github.com/farmerjohngit/myblog/issues/6#)
 - [Linux进程同步机制-Futex](https://cloud.tencent.com/developer/article/1176832)
 - [linux内核级同步机制--futex](https://juejin.im/post/5bbca253e51d451e132521e8)
 - [linux futex浅析](https://yq.aliyun.com/articles/6043)
 - [聊聊并发（五）——原子操作的实现原理](https://www.infoq.cn/article/atomic-operation)
-- [信号量及其使用和实现(超详细)](http://c.biancheng.net/view/1232.html)
-- [Linux 内核的 RCU 实现逻辑](https://www.byteisland.com/linux-%E5%86%85%E6%A0%B8%E7%9A%84-rcu-%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/)
 
 ## 线程调度为什么比进程调度更少开销？
 
@@ -75,7 +71,6 @@
 - [linux内核分析——CFS（完全公平调度算法）](https://www.cnblogs.com/tianguiyu/articles/6091378.html)
 - [CFS 完全公平调度算法](https://www.jianshu.com/p/e7417f10b6c4)
 - [Linux系统调度原理浅析（二） - 敬维](https://jingwei.link/2019/02/13/linux-process-thread-schedule-2.html)
-- [操作系统应该如何在多CPU上调度工作？](https://zhuanlan.zhihu.com/p/70469489)
 
 ## mutex
 
@@ -85,7 +80,6 @@
 
 - [面试必备之深入理解自旋锁](https://zhuanlan.zhihu.com/p/40729293)
 - [【原创+整理】线程同步之详解自旋锁](https://www.cnblogs.com/cposture/p/SpinLock.html)
-- [linux内核--自旋锁的理解](https://www.cnblogs.com/alantu2018/p/9176180.html)
 
 ## pthread_cond_wait 为什么需要传递 mutex 参数？
 
@@ -114,14 +108,10 @@
 - [libco 分析（上）：协程的实现](http://kaiyuan.me/2017/07/10/libco/)
 - [libco 分析(下)：协程的管理](http://kaiyuan.me/2017/10/20/libco2/)
 - [libco的阅读](https://reachfish.github.io/2017/08/09/libco_read/)
-- [漫谈微信libco协程设计及实现（万字长文）](https://runzhiwang.github.io/2019/06/21/libco/)
-- [微信开源C++协程库Libco—原理与应用](https://blog.didiyun.com/index.php/2018/11/23/libco/)
-- [libco 协程库原理与实现](http://cs-cjl.com/2019/05_16_libco_principle_and_impl)
 - [s_task - 跨平台的C语言协程多任务库]()
-- [动态链接黑魔法: Hook 系统函数](https://github.com/xhawk18/s_task/blob/master/readme_cn.md#%e5%85%b6%e4%bb%96%e5%8d%8f%e7%a8%8b%e5%ba%93%e5%af%b9%e6%af%94ttp://kaiyuan.me/2017/05/03/function_wrapper/)
+- [动态链接黑魔法: Hook 系统函数](hhttps://github.com/xhawk18/s_task/blob/master/readme_cn.md#%e5%85%b6%e4%bb%96%e5%8d%8f%e7%a8%8b%e5%ba%93%e5%af%b9%e6%af%94ttp://kaiyuan.me/2017/05/03/function_wrapper/)
 - [Go 协程调度——基本原理与初始化](https://github.com/LeoYang90/Golang-Internal-Notes/blob/master/Go%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md)
 - [Golang 协程调度原理](https://feiybox.com/2020/03/14/Golang-%E5%8D%8F%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%8E%9F%E7%90%86/)
 - [Head First of Golang Scheduler](https://zhuanlan.zhihu.com/p/42057783)
 - [30+张图讲解：Golang调度器GMP原理与调度全分析](https://mp.weixin.qq.com/s/SEPP56sr16bep4C_S0TLgA)
 - [大神是如何学习 Go 语言之调度器与 Goroutine](https://mp.weixin.qq.com/s?__biz=MzAxMTA4Njc0OQ==&mid=2651438277&idx=4&sn=6afb0ebd60a5a4db5c77e075b3914095&chksm=80bb6237b7cceb217150de4d41a9e98a4e3285c7c885728f92f644d8b0161338319e890783ae&scene=21#wechat_redirect)
-

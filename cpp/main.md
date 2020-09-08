@@ -26,11 +26,6 @@
 - `main`函数结束可以通过 `return 0;`或者 `exit(0)` 来结束，此时程序并非直接结束，而是先调用一些终止处理程序然后再结束。可以使用`int atexit(void (*func)(void));`来追加自定义终止处理程序，终止处理程序由 `exit`函数自动调用，调用顺序与登记顺序相反。
 - 如果`main`函数发生了异常或者使用`_exit`和`_Exit`来退出程序，则不会调用终止处理程序。
 
-## mian() 之前执行一条语句
-
-- [C/C++中如何在main()函数之前执行一条语句？](https://www.zhihu.com/question/26031933)
-- [如何让一段程序在main函数之前执行](https://www.cnblogs.com/lfri/p/12421251.html)
-
 ## 参考
 
 - [搞定技术面试-在 main函数之前发生了什么](https://juejin.im/post/5e0450d86fb9a016214ce037)

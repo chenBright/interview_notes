@@ -92,26 +92,9 @@ B+ 树则适当牺牲检索的时间复杂度（都必须检索到叶子结点�
 - [说一下聚簇索引 & 非聚簇索引](https://juejin.im/post/5cdd701ee51d453a36384939)提到了聚簇索引的优缺点
 - [MySQL性能优化[理论篇]-聚簇索引和非聚簇索引,InnoDB和MyISAM](https://blog.hufeifei.cn/2018/05/27/DB/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96[%E7%90%86%E8%AE%BA%E7%AF%87]-%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95,InnoDB%E5%92%8CMyISAM/)
 
-## 最左匹配原则
-
-- [MYSQL | 最左匹配原则](https://hacpai.com/article/1581343220693)
-
-## mysql中InnoDB建议用自增列做主键
-
-- [mysql为什么建议使用自增主键](https://zhuanlan.zhihu.com/p/71022670)
-- [mysql中InnoDB表为什么要建议用自增列做主键](https://blog.csdn.net/bigtree_3721/article/details/73151028)
-- [为什么推荐InnoDB引擎使用自增主键？](https://blog.csdn.net/zheng0518/article/details/76302167)
-
-## 自适应哈希索引
-
-- [图解MySQL | [原理解析] Adaptive Hash Index 是如何建立的](https://opensource.actionsky.com/20200214-mysql/)
-- [Mysql自适应哈希索引（Adaptive Hash Index）创建的条件](https://juejin.im/post/6847902217270198286)
-
 ## 资料
 
 - [面试试题（C++方向）](https://blog.csdn.net/Xiongchao99/article/details/73381280)
 - [MySQL索引背后的数据结构及算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)（很好的文章）
 - [牛客资料——数据库基础](https://www.nowcoder.com/tutorial/93/60c2f308109c4a7d8089a710b9ba1dab)
 - [我以为自己对索引很了解，直到我遇到了阿里面试官](https://juejin.im/post/5e6509fd518825490d1267eb?utm_source=gold_browser_extension)
-- [数据库索引的实现原理](https://blog.csdn.net/kennyrose/article/details/7532032)
-- [深入理解MySQL索引原理和实现——为什么索引可以加速查询](https://blog.csdn.net/tongdanping/article/details/79878302)

@@ -32,5 +32,4 @@ Type& name <==> Type* const name
 - [C++基础知识汇总](https://www.cnblogs.com/wulei0630/p/9279088.html)
 - [探索C++的底层机制](https://www.cnblogs.com/findumars/p/3710550.html)
 - [C++ 引用的本质](https://blog.csdn.net/K346K346/article/details/46805159)
-- [深入浅出 C++ 11 右值引用](https://zhuanlan.zhihu.com/p/107445960)
 

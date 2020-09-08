@@ -12,10 +12,6 @@ Inode 记录的信息：
 - 链接数：有多少文件名指向这个 inode（硬连接）
 - 文件块指针：指向文件数据 block 的位置
 
-参考：
+
 
 - [关于 inode](https://www.ibm.com/developerworks/cn/aix/library/au-speakingunix14/index.html)
-
-## 文件
-
-- [Linux 为什么多进程能够读写正在删除的文件](https://www.jianshu.com/p/fda6526aad1b)

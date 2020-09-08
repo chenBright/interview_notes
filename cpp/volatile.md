@@ -23,7 +23,3 @@
 # 参考
 
 - [谈谈 C/C++ 中的 volatile](https://liam.page/2018/01/18/volatile-in-C-and-Cpp/)
-- [多处理器环境和线程同步的高级话题](http://baiy.cn/doc/cpp/advanced_topic_about_multicore_and_threading.htm)
-- [C++多线程有必要加volatile么？](https://www.zhihu.com/question/31490495/answer/87331192)
-- [漫画：什么是volatile关键字？（整合版](https://www.cxyxiaowu.com/4286.html)
-
