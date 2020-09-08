@@ -12,6 +12,7 @@ gdb相关知识。
 - [gdb调试coredump文件](http://notes.maxwi.com/2017/12/03/coredump/)
 - [Linux下使用gdb调试core文件](https://cloud.tencent.com/developer/article/1177442)
 - [Linux环境下段错误的产生原因及调试方法小结](https://mp.weixin.qq.com/s/XLpjV0TQsyFQJxH5iNQN8A)
+- [linux下core dump](https://www.cnblogs.com/alantu2018/p/8468879.html)
 
 ## 多线程
 

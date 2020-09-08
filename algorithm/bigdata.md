@@ -6,3 +6,8 @@
 - [布隆过滤器过时了，未来属于布谷鸟过滤器？](https://mp.weixin.qq.com/s/XxY3b5FoVXCvHJWMxQH29g)
 - [外部排序：如何用 2GB内存给 20 亿个整数排序？](https://mp.weixin.qq.com/s/albS0ZJepA1F5hb4qtTMNQ)
 - [面试知识点总结-场景题](https://blog.nowcoder.net/n/33d0033550d24bf49841858f1b2091aa)
+
+## 一致性哈希
+
+- [一致性哈希算法的理解与实践](https://github.com/Yikun/yikun.github.com/issues/53)
+- [面试必备：什么是一致性Hash算法？](https://zhuanlan.zhihu.com/p/34985026)

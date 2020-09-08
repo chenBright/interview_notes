@@ -10,6 +10,10 @@
 - [epoll源码解析翻译------说使用了mmap的都是骗子](https://www.cnblogs.com/l2017/p/10830391.html)
 - [epoll学习报告](https://blog.ykyi.net/2013/08/epoll%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/)
 - [Linux内核：poll机制](https://blog.csdn.net/JansonZhe/article/details/48576025)
+- [select、poll、epoll简介](https://xiaoxiami.gitbook.io/linux-server/wu-zhong-i-o-mo-xing/selectpollepolljian-jie)
+- [Linux 环境开发（二）：Linux IO 复用之 select/poll/epoll 的差异分析](https://toutiao.io/posts/377995/app_preview)
+- [select、poll、epoll之间的区别总结整理](https://www.cnblogs.com/Anker/p/3265058.html)
+- [深入理解网络 IO 模型](https://www.cyhone.com/articles/reunderstanding-of-non-blocking-io/)
 
 ## POSIX aio
 
@@ -27,6 +31,7 @@ POSIX aio 是 glibc 在用户态用 pthread 实现的，用回调或者 signal �
 
 - [多个线程如何操作同一个epoll fd](https://blog.csdn.net/menggucaoyuan/article/details/38959725)
 - [epoll的那些坑](http://linbo.github.io/2019/04/14/epoll-pitfall)
+- [Epoll listen socket fd accept、读写数据](https://juejin.im/post/6844904118054551559#heading-14)
 
 ## EPOLLONESHOT
 
@@ -40,3 +45,7 @@ POSIX aio 是 glibc 在用户态用 pthread 实现的，用回调或者 signal �
 
 - [Nginx为什么比Apache Httpd高效：原理篇](http://www.mamicode.com/info-detail-1156329.html)
 
+## C10K、C10M
+
+- [高性能网络编程经典：《The C10K problem》](http://www.52im.net/thread-560-1-1.html)
+- [架构师实践日｜从C10K到C10M高性能网络的探索与实践 ](https://blog.qiniu.com/archives/4941)

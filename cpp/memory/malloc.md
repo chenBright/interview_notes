@@ -53,6 +53,7 @@
 - [C/C++:堆栈面面观](https://zhuanlan.zhihu.com/p/56929325)
 - [使用malloc测试堆的最大申请数量](https://www.jianshu.com/p/43567f4ea4eb)
 - [深入理解内存分配](http://djs66256.github.io/2018/04/04/2018-04-04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/)
+- [深入理解Linux内存分配](https://www.cnblogs.com/alantu2018/p/9177356.html)
 
 ## 伙伴系统、slab机制
 
@@ -82,3 +83,5 @@
 2. 必须保证调用 `delete this` 的成员函数是最后一个调用 this 的成员函数；
 3. 必须保证成员函数的 `delete this` 后面没有调用`this`了；
 4. 必须保证 `delete this` 后没有人使用了。
+5. 不能在析构函数中`delete this`，否则会无限递归，导致栈溢出。
+

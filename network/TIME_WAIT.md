@@ -5,6 +5,8 @@
 - 优雅的关闭 TCP 连接，也就是尽量保证被动关闭的一端收到它自己发出去的`FIN`报文的`ACK`确认报文；
 - 处理延迟的重复报文，这主要是为了避免前后两个使用相同四元组的连接中的前一个连接的报文干扰后一个连接。
 
+- [为什么 TCP 协议有 TIME_WAIT 状态](https://draveness.me/whys-the-design-tcp-time-wait/)
+
 ## 2MSL
 
 MSL 就是 max segment lifetime，这是一个 IP 数据包能在网络中生存的最长时间，超过这个时间，IP 数据包将在网络中消失。MSL 在[RFC 793](https://tools.ietf.org/html/rfc793)中建议是**2分钟**，而源自 Berkeley 的 TCP 实现传统上使用**30秒**。
@@ -89,6 +91,7 @@ netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}' # 该命令
 - [解决 Linux 下 TIME_WAIT 和 CLOSE_WAIT 过多的问题](https://blog.minhow.com/articles/linux/solve-time-and-close-wait/)
 - [TIME_WAIT和CLOSE_WAIT过多](https://blog.51cto.com/net881004/2164024)
 - [HttpClient连接池抛出大量ConnectionPoolTimeoutException: Timeout waiting for connection异常排查](https://blog.csdn.net/shootyou/article/details/6615051)
+- [大量的 TIME_WAIT 状态连接怎么处理？](https://mp.weixin.qq.com/s/5J_8hD0DnCaX4ksgsgTjHA)
 
 ## 参考
 

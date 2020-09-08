@@ -11,3 +11,8 @@
 - [DNS解析过程原理](https://juejin.im/post/5b0a32a36fb9a07ab979f0b4)
 - [DNS迭代查询和递归查询](https://zhuanlan.zhihu.com/p/61394192)
 
+## CDN
+
+- [也许是史上最全的一次CDN详解](https://zhuanlan.zhihu.com/p/28940451)
+- [CDN的基本原理和基础架构](https://developer.aliyun.com/article/104041)
+- [CDN加速原理](https://www.jianshu.com/p/1dae6e1680ff)

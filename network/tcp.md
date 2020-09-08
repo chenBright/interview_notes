@@ -16,6 +16,9 @@
 - [常用的TCP Option](https://blog.csdn.net/blakegao/article/details/19419237)
 - [关于 TCP/IP，必知必会的十个问题](https://juejin.im/post/598ba1d06fb9a03c4d6464ab#heading-27)
 - [计算机网络太难？了解这一篇就够了](https://juejin.im/post/5d896cccf265da03bd055c87)
+- [35 张图解被问千百遍的 TCP 三次握手和四次挥手面试题 ](https://juejin.im/post/6844904115475070989)
+- [TCP 的那些事儿（上](https://coolshell.cn/articles/11564.html)
+- [TCP 的那些事儿（下）](https://coolshell.cn/articles/11609.html)
 
 ## 重传机制
 
@@ -30,6 +33,7 @@
 - [面试之路（29）-TCP流量控制和拥塞控制-滑动窗口协议详解](https://blog.csdn.net/lpjishu/article/details/51366691)
 - [浅谈TCP（2）：流量控制与拥塞控制](https://juejin.im/post/5acae2b55188252b0b2013aa#heading-18)
 - [TCP流量控制和拥塞控制](https://segmentfault.com/a/1190000011641120)
+- [Linux TCP 网络拥塞控制的困境](https://wetest.qq.com/lab/view/246.html)
 
 [知乎提到拥塞控制的缺点：](https://www.zhihu.com/question/47560918/answer/232939764)
 
@@ -62,6 +66,7 @@
 
 ## TCP建立连接为什么是三次握手，为什么不是两次或四次?
 
+- [为什么是三次握手？不是两次、四次？](https://www.zhihu.com/question/271701044/answer/1279809269)
 - [为什么 TCP 建立连接需要三次握手](https://draveness.me/whys-the-design-tcp-three-way-handshake)
 - [为什么 TCP 建立连接需要三次握手 · Why's THE Design?](https://draveness.me/whys-the-design-tcp-three-way-handshake)
 - [TCP建立连接为什么是三次握手，为什么不是两次或四次?](https://blog.csdn.net/to_be_better/article/details/54885684)
@@ -82,6 +87,10 @@
 ## 为什么 **TCP** 建立连接是三次握手，终止连接却要四次挥手？
 
 因为当服务器收到客户的 SYN 连接请求报文之后，可以直接发送 SYN+ACK 报文。 其中，ACK 报文是用来应答的，SYN 报文是用来同步的。但是关闭连接时，当服 务器收到 FIN 报文时，服务器执行被动关闭，这个 FIN 由 TCP 确认，也作为一个 文件结束符传递给接收端应用进程，放在已排队等候接收端应用进程处理的其它 数据之后，也就是说，服务器在接收到 FIN 之后，可能不会立即关闭 SOCKET， 所以只能先回复一个 ACK 报文，通知客户“你发的 FIN 报文我收到了”。只有等接收端应用进程处理完其它数据之后，服务器才会发送 FIN 报文，因此关闭连接 时服务器发来的 ACK 和 FIN 可能不能一起发送，所以需要四次挥手。
+
+## TCP 第三次握手可以发数据吗？
+
+- [三次握手的第三次握手发送ACK能携带数据吗？如何携带？怎样体现的呢？](https://www.zhihu.com/question/66407996/answer/242709211)
 
 ## TCP包的seq和ack号计算方法
 
@@ -136,6 +145,7 @@ TCP 保活的作用：
 - [linux网络编程系列（九）--优雅关闭以及如何检测对端已经关闭](https://juejin.im/post/5d1840335188255ee8176be2)
 - [socket 编程 ： shutdown vs close](https://www.cnblogs.com/cnblogs-wangzhipeng/p/10162026.html)
 - [linux网络编程系列（六）--setsockopt的常用选项](https://juejin.im/post/5d183f7f5188255d6a32de17)
+- [浅谈服务端编程](http://www.0xffffff.org/2014/11/20/33-servie-program/)
 
 ## tcp同时打开
 
@@ -198,14 +208,27 @@ TCP 保活的作用：
 - [TCP-IP详解：糊涂窗口综合症（Silly Window syndrome）](https://blog.csdn.net/wdscq1234/article/details/52463952)
 - [速读原著-TCP/IP(糊涂窗口综合症)](https://cloud.tencent.com/developer/article/1598141)
 
+## 定时器
+
+- [TCP中的7种定时器详解](https://blog.csdn.net/hyman_yx/article/details/52086389)
+- [UNIX网络编程总结](https://blog.csdn.net/wllenyj/article/details/50926777)
+
+## Nagle
+
+- [Nagle 算法与 TCP socket 选项 TCP_CORK](http://senlinzhan.github.io/2017/02/10/Linux%E7%9A%84TCP-CORK/)
+- [TCP之Nagle算法&&延迟ACK](https://www.cnblogs.com/wanpengcoder/p/5366156.html)
+- [TCP Nagle算法&&延迟确认机制](https://my.oschina.net/xinxingegeya/blog/485643)
+
 ## linux内核收发数据包的处理过程
 
 - [linux网络基础原理](https://juejin.im/post/5dc13de9e51d456eea09dac5#heading-0)
 - [Linux内核中网络数据包的接收-第一部分 概念和框架](https://blog.csdn.net/dog250/article/details/50528280)
 - [Linux内核中网络数据包的接收-第二部分 select/poll/epoll](https://blog.csdn.net/dog250/article/details/50528373?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
+- [TCP/IP的底层队列是如何实现的？](https://cloud.tencent.com/developer/article/1477518)
 
 ## fast open
 
 - [面试题-你听过TCP Fast Open (TFO/TCP快速打开)吗？能解释一下吗？](https://www.cnblogs.com/passzhang/p/12249539.html)
 - [TCP 的那些事 | TCP Fast Open](https://blog.csdn.net/u014023993/article/details/85928026)
+- [如何绕过三次握手？](https://learnku.com/articles/46205#1bed27)
 

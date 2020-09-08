@@ -42,7 +42,7 @@ HTTP(S)相关知识。
 
 - [HTTP 协议中的 Transfer-Encoding](https://imququ.com/post/transfer-encoding-header-in-http.html)
 
-## HTTPS原理
+## HTTPS
 
 - [HTTPS的建立流程](https://segmentfault.com/a/1190000000476876)
 - [https建立连接的过程](https://juejin.im/post/5dcca1ab518825598c0f253d)
@@ -50,11 +50,18 @@ HTTP(S)相关知识。
 - [图解SSL/TLS协议](https://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
 - [HTTPS篇之SSL握手过程详解](https://razeencheng.com/post/ssl-handshake-detail)
 - [为什么 HTTPS 需要 7 次握手以及 9 倍时延](https://draveness.me/whys-the-design-https-latency)
+- [SSL/TLS协议运行机制的概述](https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
+- [HTTPS劫持](https://bloodzer0.github.io/ossa/red_vs_blue/hijack_https/)
+- [HTTPS中间人攻击及防御](https://elliotsomething.github.io/2016/12/22/HTTPS%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB%E5%8F%8A%E9%98%B2%E5%BE%A1/)
+- [数字签名是什么？](http://www.ruanyifeng.com/blog/2011/08/what_is_a_digital_signature.html)
 
 ## HTTP2.0
 
 - [HTTP,HTTP2.0,SPDY,HTTPS 你应该知道的一些事](http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/)
 - [HTTP2和HTTPS来不来了解一下？](https://www.cnblogs.com/Java3y/p/9392349.html)
+- [HTTP2 Server Push 的研究](http://www.alloyteam.com/2017/01/http2-server-push-research/)
+- [当我们在谈论HTTP队头阻塞时，我们在谈论什么？](https://liudanking.com/arch/what-is-head-of-line-blocking-http2-quic/)
+- [解密 HTTP/2 与 HTTP/3 的新特性](https://www.infoq.cn/article/kU4OkqR8vH123a8dLCCJ)
 
 ## 请求方法
 
@@ -69,4 +76,11 @@ HTTP(S)相关知识。
 `HEAD` 方法的响应不应包含响应正文. 即使包含了正文也必须忽略掉. 虽然描述正文信息的 [entity headers](https://developer.mozilla.org/zh-CN/docs/Glossary/Entity_header), 例如 [`Content-Length`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Length) 可能会包含在响应中, 但它们并不是用来描述 `HEAD` 响应本身的, 而是用来描述同样情况下的 [`GET`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET) 请求应该返回的响应.
 
 如果 `HEAD` 请求的结果显示在上一次 [`GET`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET) 请求后缓存的资源已经过期了, 那么该缓存会失效, 即使 `GET` 请求已经完成.
+
+## 幂等性
+
+- [微服务架构之幂等性问题及设计思想，你不得不知的一些幂等方案](https://juejin.im/post/6844903880615002125)
+
+- [如何保证业务的幂等性](https://gongfukangee.github.io/2019/03/25/Idempotence/)
+- [分布式系统互斥性与幂等性问题的分析与解决](https://tech.meituan.com/2016/09/29/distributed-system-mutually-exclusive-idempotence-cerberus-gtis.html)
 
